@@ -16,10 +16,10 @@ const Footer = () => {
 
         <Row className="justify-content-center text-center">
           <Col md={12}>
-            <a href="https://www.linkedin.com/in/dipanjan-pathak/" className="text-white mx-2">
+            <a href="" className="text-white mx-2">
               <i className="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://github.com/dipanjanpathak" className="text-white mx-2">
+            <a href="" className="text-white mx-2">
               <i className="fab fa-github"></i>
             </a>
           </Col>
