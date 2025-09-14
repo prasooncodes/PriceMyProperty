@@ -67,42 +67,61 @@ const sampleData = [
     "Water_Supply": "Municipal",
     "Pet_Friendly": false,
     "Fire_Safety_Installed": false
+  },
+  // Add more sample properties if needed
+  {
+    "_id": "J71214795",
+    "PROP_ID": "J71214795",
+    "PROPERTY_TYPE": "Villa",
+    "SOCIETY_NAME": "Green Valley Heights",
+    "CITY": "Mumbai",
+    "location": "Andheri West",
+    "BEDROOM_NUM": 3.0,
+    "BALCONY_NUM": 2.0,
+    "AREA": 1200,
+    "Price_per_sqft": 8500.0,
+    "PRICE": 1.02,
+    "AGE": "New Property",
+    "FURNISH": "Semi-Furnished",
+    "Image": "https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070_960_720.jpg",
+    "Contact": "+91-9876543210"
   }
 ];
 
-// Thunk to fetch paginated data (modified to return sample data)
+// Thunk to fetch paginated data 
 export const fetchAllData = createAsyncThunk('allProperty/fetchData', async (page) => {
-  try {
-    // Try to fetch from API first
-    const response = await axios.get(`${process.env.REACT_APP_NODE_API_URL}allData/${page}`)
-    return response.data
-  } catch (error) {
-    // If API fails, return sample data
-    console.log('API failed, returning sample data:', error.message)
-    if (page === 1) {
-      return sampleData
-    } else {
-      return [] // No more data for additional pages
-    }
-  }
-})
+  // For now, just return sample data immediately
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      if (page === 1) {
+        resolve(sampleData);
+      } else {
+        resolve([]); // No more pages
+      }
+    }, 100); // Very short delay to simulate API call
+  });
+});
 
 // Slice to handle data fetching, loading, and pagination
 const allDataSlice = createSlice({
   name: 'allData',
   initialState: {
-    data: [],
-    loading: false,
+    data: sampleData, // Start with sample data immediately
+    loading: false,   // Set to false so no loading spinner
     error: null,
-    hasMoreData: true,
+    hasMoreData: false, // No more data to load
   },
   reducers: {
-    // Add action to load sample data directly
+    // Action to load sample data directly
     loadSampleData: (state) => {
       state.data = [...sampleData]
       state.loading = false
       state.error = null
       state.hasMoreData = false
+    },
+    // Action to reset loading state
+    resetLoading: (state) => {
+      state.loading = false
     }
   },
   extraReducers: (builder) => {
@@ -112,13 +131,9 @@ const allDataSlice = createSlice({
         const fetchedData = action.payload
 
         if (fetchedData.length !== 0) {
-          // Prevent duplicates
-          const existingIds = state.data.map(item => item._id || item.PROP_ID)
-          const newData = fetchedData.filter(item => 
-            !existingIds.includes(item._id || item.PROP_ID)
-          )
-          state.data.push(...newData)
-          state.hasMoreData = fetchedData.length > 0
+          // For sample data, just replace
+          state.data = [...fetchedData]
+          state.hasMoreData = false
         } else {
           state.hasMoreData = false
         }
@@ -127,7 +142,8 @@ const allDataSlice = createSlice({
       })
       //pending
       .addCase(fetchAllData.pending, (state) => {
-        state.loading = true
+        // Don't show loading for sample data
+        state.loading = false
         state.error = null
       })
       //rejected
@@ -135,17 +151,15 @@ const allDataSlice = createSlice({
         state.loading = false
         state.error = action.error.message
         
-        // Fallback: load sample data if API fails
-        if (state.data.length === 0) {
-          state.data = [...sampleData]
-          state.hasMoreData = false
-        }
+        // Always fallback to sample data
+        state.data = [...sampleData]
+        state.hasMoreData = false
       })
   },
 })
 
 // Export actions
-export const { loadSampleData } = allDataSlice.actions
+export const { loadSampleData, resetLoading } = allDataSlice.actions
 
 // Export the reducer
 export default allDataSlice.reducer
