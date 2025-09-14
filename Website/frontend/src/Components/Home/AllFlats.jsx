@@ -16,6 +16,12 @@ const AllFlats = () => {
     const [isHovered, setIsHovered] = useState({}); // State to manage hover for each card
 
     const { data, loading, error, hasMoreData } = useSelector((state) => state.allData);
+    console.log('AllFlats Debug Info:');
+    console.log('API URL:', process.env.REACT_APP_NODE_API_URL);
+    console.log('Data:', data);
+    console.log('Loading:', loading);
+    console.log('Error:', error);
+    console.log('Has More Data:', hasMoreData);
 
     useEffect(() => {
         if (!loading && hasMoreData) {
