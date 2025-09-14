@@ -9,6 +9,8 @@ import bodyParser from 'body-parser'
 import FlatData from './db/FlatModel.js'
 import SinglePropertyRecomendationRoute from './Routes/SinglePropertyRecomendationRoute.js'
 import PredictionRecommendationRoute from './Routes/PredictionRecommendationRouter.js'
+import seedRoutes from './Routes/seedRoute.js';
+
 
 
 
@@ -20,6 +22,9 @@ app.use(bodyParser.json())
 app.use(express.json())
 // Connect to MongoDB
 connectToDatabase()
+
+// demo data
+app.use('/api', seedRoutes);
 
 // get search result at home
 app.use('/api/clientData', ClientDataRoute)
