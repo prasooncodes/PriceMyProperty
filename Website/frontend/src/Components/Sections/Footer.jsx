@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import '@fortawesome/fontawesome-free/css/all.min.css' 
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear() 
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="custom-footer">
@@ -16,10 +16,20 @@ const Footer = () => {
 
         <Row className="justify-content-center text-center">
           <Col md={12}>
-            <a href="https://www.linkedin.com/in/lakshsharma18/" className="social-link mx-2">
+            <a
+              href="https://www.linkedin.com/in/lakshsharma18/"
+              className="social-link mx-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://github.com/prasooncodes" className="social-link mx-2">
+            <a
+              href="https://github.com/prasooncodes"
+              className="social-link mx-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i className="fab fa-github"></i>
             </a>
           </Col>

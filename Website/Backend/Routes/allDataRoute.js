@@ -1,9 +1,8 @@
 import express from 'express';
-import  {allDataController}  from '../Controllers/allDataController.js';
+import { allDataController } from '../Controllers/allDataController.js';
 
 const router = express.Router();
 
-
-router.post('/:page', allDataController);
+router.get('/:page', allDataController); // Change from POST to GET
 
 export default router;

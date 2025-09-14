@@ -15,7 +15,10 @@ import PredictionRecommendationRoute from './Routes/PredictionRecommendationRout
 dotenv.config()
 const app = express()
 // Middleware
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:3000', // React app URL
+  credentials: true
+}));
 app.use(bodyParser.json())
 app.use(express.json())
 // Connect to MongoDB
