@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // Thunk to fetch paginated data
 export const fetchAllData = createAsyncThunk('allProperty/fetchData', async (page) => {
-  const response = await axios.post(`${process.env.REACT_APP_NODE_API_URL}allData/${page}`)
+  const response = await axios.get(`${process.env.REACT_APP_NODE_API_URL}allData/${page}`)
   return response.data
 })
 

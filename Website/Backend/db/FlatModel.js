@@ -180,7 +180,11 @@ const flatSchema = new mongoose.Schema({
     Fire_Safety_Installed: {
         type: Boolean,
         required: true,
-    },
+    }, 
+    Contact: {
+    type: String,
+    required: true,
+   },
 });
 
 // Create a model for the flat data
