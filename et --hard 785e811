@@ -1,0 +1,9 @@
+[33mc21779c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m785e811[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{1}: commit: Refactor AllFlats component to load sample data on mount; enhance error handling and UI updates; update allDataSlice to return sample data directly and adjust loading states.
+[33mc21779c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{2}: commit: Remove hardcoded LinkedIn and GitHub links from Footer component
+[33m2b680d6[m HEAD@{3}: commit: Refactor allDataController to increase pagination limit; enhance error handling in fetchAllData thunk and add sample data fallback; update AllFlats component to log additional debug information.
+[33m52b96bb[m HEAD@{4}: commit: Refactor allDataRoute and related files to switch from POST to GET requests for data fetching; add Contact field to FlatModel schema.
+[33m539acae[m HEAD@{5}: pull --tags origin main: Merge made by the 'ort' strategy.
+[33mc5d0dab[m HEAD@{6}: commit: Add AllFlats component with styling and infinite scroll functionality; update Poster component with new design and search bar
+[33m8c311d0[m HEAD@{7}: Branch: renamed refs/heads/master to refs/heads/main
+[33m8c311d0[m HEAD@{9}: commit (initial): first commit
