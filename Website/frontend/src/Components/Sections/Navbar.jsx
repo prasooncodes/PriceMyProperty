@@ -75,7 +75,7 @@ function NavBar() {
         </Container>
       </Navbar>
 
-      <style jsx>{`
+      <style>{`
         .modern-navbar {
           background: linear-gradient(135deg, 
             rgba(15, 23, 42, 0.95) 0%, 
