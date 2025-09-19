@@ -16,7 +16,7 @@ dotenv.config()
 const app = express()
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', // React app URL
+  origin: ['http://localhost:3000', 'http://localhost:3001'], // Allow both ports
   credentials: true
 }));
 app.use(bodyParser.json())

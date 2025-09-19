@@ -62,7 +62,7 @@ const WishList = () => {
                             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                           }}
                         >
-                          <Row noGutters>
+                          <Row className="g-0">
                             <Col md={4}>
                               <Card.Img
                                 src={flat.Image}
